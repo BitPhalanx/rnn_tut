@@ -1,0 +1,39 @@
+PS C:\Users\kimo\Desktop\skool\ECE672\hw2> python ptb_word_lm.py --data_path=.\simple-examples\data\ --model=small
+2017-09-27 02:32:52.294580: W C:\tf_jenkins\home\workspace\rel-win\M\windows\PY\36\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow
+library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-09-27 02:32:52.313200: W C:\tf_jenkins\home\workspace\rel-win\M\windows\PY\36\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow
+library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+Traceback (most recent call last):
+  File "ptb_word_lm.py", line 525, in <module>
+    tf.app.run()
+  File "C:\Python36\lib\site-packages\tensorflow\python\platform\app.py", line 48, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "ptb_word_lm.py", line 469, in main
+    m = PTBModel(is_training=True, config=config, input_=train_input)
+  File "ptb_word_lm.py", line 134, in __init__
+    output, state = self._build_rnn_graph(inputs, config, is_training)
+  File "ptb_word_lm.py", line 173, in _build_rnn_graph
+    return self._build_rnn_graph_cudnn(inputs, config, is_training)
+  File "ptb_word_lm.py", line 185, in _build_rnn_graph_cudnn
+    params_size_t = self._cell.params_size()
+  File "C:\Python36\lib\site-packages\tensorflow\contrib\cudnn_rnn\python\ops\cudnn_rnn_ops.py", line 597, in params_size
+    direction=self._direction)[0]
+  File "C:\Python36\lib\site-packages\tensorflow\contrib\cudnn_rnn\ops\gen_cudnn_rnn_ops.py", line 283, in cudnn_rnn_params_size
+    name=name)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\op_def_library.py", line 767, in apply_op
+    op_def=op_def)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\ops.py", line 2632, in create_op
+    set_shapes_for_outputs(ret)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\ops.py", line 1911, in set_shapes_for_outputs
+    shapes = shape_func(op)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\common_shapes.py", line 595, in call_cpp_shape_fn
+    require_shape_fn)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\common_shapes.py", line 654, in _call_cpp_shape_fn_impl
+    input_tensors_as_shapes, status)
+  File "C:\Python36\lib\contextlib.py", line 88, in __exit__
+    next(self.gen)
+  File "C:\Python36\lib\site-packages\tensorflow\python\framework\errors_impl.py", line 466, in raise_exception_on_not_ok_status
+    pywrap_tensorflow.TF_GetCode(status))
+tensorflow.python.framework.errors_impl.NotFoundError: Op type not registered 'CudnnRNNParamsSize' in binary running on DESKTOP-PCJGPKO. Make sure t
+he Op and Kernel are registered in the binary running in this process.
+PS C:\Users\kimo\Desktop\skool\ECE672\hw2>
