@@ -434,8 +434,8 @@ def get_config():
     raise ValueError("Invalid model: %s", FLAGS.model)
   if FLAGS.rnn_mode:
     config.rnn_mode = FLAGS.rnn_mode
-##  if FLAGS.num_gpus != 1 or tf.__version__ < "1.3.0" :
-## Commenting this line did nothing, it was just checking not setting anything
+#  if FLAGS.num_gpus != 1 or tf.__version__ < "1.3.0" :
+# Commenting this line did nothing, it was just checking not setting anything
     config.rnn_mode = BASIC
   return config
 
@@ -449,11 +449,11 @@ def main(_):
 ## Attempted to ignore num_gpu warnings below here, but then the python scrips dies later because
 ## "op type not registered CudnnRNNParamsSize' I believe because I do not have cuDNN installed
 ## and I do not have a compatible GPU at this time...
-##  if FLAGS.num_gpus > len(gpus):
-##    raise ValueError(
-##        "Your machine has only %d gpus "
-##        "which is less than the requested --num_gpus=%d."
-##        % (len(gpus), FLAGS.num_gpus))
+#  if FLAGS.num_gpus > len(gpus):
+#    raise ValueError(
+#        "Your machine has only %d gpus "
+#        "which is less than the requested --num_gpus=%d."
+#        % (len(gpus), FLAGS.num_gpus))
 
   raw_data = reader.ptb_raw_data(FLAGS.data_path)
   train_data, valid_data, test_data, _ = raw_data
